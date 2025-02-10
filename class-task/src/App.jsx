@@ -1,16 +1,15 @@
 import React from 'react'
-import Button from './componets/Button'
+import Header from './componets/Header'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
 
 
   return (
-    <>
-      <div >
-        <Button label="Save" onClick={() => alert("Save clicked")} />
-        <Button label="Cancel" onClick={() => alert("Cancel clicked")} />
-      </div>
-    </>
+    <div>
+      <Header />
+    </div>
   )
 }
 

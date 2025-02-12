@@ -1,0 +1,10 @@
+.footer {
+    background-color: #333;
+    font-family: "Numans", serif;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+
+    padding: 30px 0;
+    width: 100%;
+  }

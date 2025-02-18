@@ -1,24 +1,25 @@
-import React from 'react'
-// import Header from './componets/Header'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from './componets/Button';
-// import Navbars from './componets/Navbar';
-
+import { useState } from "react";
 
 function App() {
-  const handleClick = (message) => {
-    alert(message);
+  const [color, setColor] = useState('');
+
+  const handleChangeColor = (event) => {
+    setColor(event.target.value);
   };
 
   return (
     <>
-      <div className='d-flex justify-start align-items-center p-3'>
-        <Button label="Primary-button" onClick={() => handleClick('Primary button clicked!')} style="bg-primary" />
-        <Button label="Secondary-button" onClick={() => handleClick('Secondary button clicked!')} style="bg-secondary" />
-        <Button label="Danger-button" onClick={() => handleClick('Danger button clicked!')} style="bg-danger" />
+      <select onChange={handleChangeColor}>
+        <option value="">Select a color</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+      </select>
+      <div style={{ backgroundColor: color, height: '100px', marginTop:"40px", width: '100%' }}>
+        Color Box
       </div>
     </>
   );
 }
 
-export default App
+export default App;

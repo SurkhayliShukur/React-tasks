@@ -9,7 +9,7 @@ export const CardContext = (props) =>{
       className={styles.title_winner}
       style={{ color: props.isWinner ? "green" : "red" }}
     >
-      {" "}
+   
       {props.isWinner ? "Winner" : "Lose"}
     </p>
 

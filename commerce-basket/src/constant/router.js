@@ -3,4 +3,5 @@ export const ROUTER = {
     Basket: '/basket',
     Products: '/products',
     Wishlist: '/wishlist',
+    Detail: '/detail',
 }

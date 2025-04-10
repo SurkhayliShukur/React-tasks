@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Numans&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+  --dot-bg: #18181b;
+  --dot-color: #848282;
+  --dot-size: 1px;
+  --dot-space: 40px;
+  background: linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #009e67;
+  cursor: grabbing;
+}
+::selection {
+  background-color: rgba(0, 158, 103, 0.5);
+  color: #ffffff;
+}

@@ -38,3 +38,7 @@ body {
   background-color: rgba(0, 158, 103, 0.5);
   color: #ffffff;
 }
+@theme {
+  --font-display: 'Roboto', "sans-serif";
+  --custom-color: rgba(0, 158, 103, 0.95);
+}

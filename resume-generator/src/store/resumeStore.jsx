@@ -1,24 +1,58 @@
 import { create } from "zustand";
 
+const getLocalStorageData = () => {
+  try {
+    const storedData = localStorage.getItem("resume-personData");
+    return storedData ? JSON.parse(storedData) : {};
+  } catch (error) {
+    console.error("LocalStorage oxunmadı:", error);
+    return {};
+  }
+};
 
 export const useResume = create((set) => ({
-    personData: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        country: "",
-        city: "",
-        Job: "",
-        lisence: "",
-        summary: "",
-    },
+  personData: {
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    country: "",
+    city: "",
+    job: "",
+    lisence: "",
+    summary: "",
+    ...getLocalStorageData(),
+  },
 
-    addPersonData: (name, value) =>
-        set((state) => ({
+  updatePersonData: (newData) =>
+    set((state) => {
+      const updated = {
+        ...state.personData,
+        ...newData,
+      };
+      try {
+        localStorage.setItem("resume-personData", JSON.stringify(updated));
+      } catch (error) {
+        console.error("LocalStorage yazılmadı:", error);
+      }
+      return { personData: updated };
+    }),
+
+    clearPersonData: () =>
+        set(() => {
+          localStorage.removeItem("resume-personData");
+          return {
             personData: {
-                ...state.personData,
-                [name]: value,
+              firstName: "",
+              lastName: "",
+              email: "",
+              phone: "",
+              country: "",
+              city: "",
+              job: "",
+              lisence: "",
+              summary: "",
             },
-        })),
-}))
+          };
+        }),
+}));

@@ -7,6 +7,7 @@ export const resources = {
             PersonInfoTitle: "Personal Information",
             FirstName: "First Name",
             LastName: "Last Name",
+            DeleteResume:"Delete Resume",
         }
 
 
@@ -19,6 +20,7 @@ export const resources = {
             PersonInfoTitle: "Şəxsi Məlumat",
             FirstName: "Ad",
             LastName: "Soyad",
+            DeleteResume:"CV-ni Sil",
         }
 
     }

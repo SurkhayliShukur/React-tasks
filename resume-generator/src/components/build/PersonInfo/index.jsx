@@ -28,11 +28,20 @@ const PersonInfo = () => {
                 <div className="flex flex-col items-center">
                     <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white mb-2">
                         <img
-                            src="https://via.placeholder.com/96"
-
+                            src={personData.image || "https://via.placeholder.com/96"}
+                            alt="Profile"
                             className="w-full h-full object-cover"
                         />
                     </div>
+
+                    <Input
+                            type="url"
+                            InputText="Image URL"
+                            name="image"
+                            placeholder="https://example.com/photo.jpg"
+                            value={personData.image || ""}
+                            onChange={handleInputChange}
+                        />
                 </div>
 
                 <div className="flex justify-between items-center gap-4">

@@ -8,8 +8,6 @@ const CvPreview = () => {
     <div className="bg-white text-black shadow-md rounded-lg h-full p-10 w-full max-w-4xl mx-auto my-10 font-sans">
       <div className="flex flex-col md:flex-row gap-10">
         
-        {/* Sol bölmə - Şəxsi məlumatlar */}
-      
           <div className="text-center">
             <h2 className="text-2xl uppercase font-bold">
               {personData.firstName} {personData.lastName}
@@ -25,9 +23,6 @@ const CvPreview = () => {
             )}
             {personData.lisence && <p><strong>Lisenziya:</strong> {personData.lisence}</p>}
           </div>
-    
-
-        {/* Sağ bölmə - Professional məlumatlar */}
       </div>
     </div>
   );

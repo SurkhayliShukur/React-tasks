@@ -21,6 +21,7 @@ export const useResume = create((set) => ({
     job: "",
     lisence: "",
     summary: "",
+    image: "",
     ...getLocalStorageData(),
   },
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Input = (props) => {
 
-    const { InputText, type, placeholder, onChange, name, value } = props
+    const { InputText, type, placeholder, onChange, name, value, } = props
 
     return (
         <>

@@ -28,7 +28,7 @@ const PersonInfo = () => {
                 <div className="flex flex-col items-center">
                     <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white mb-2">
                         <img
-                            src={personData.image || "https://via.placeholder.com/96"}
+                            src={personData.image || "https://ui-avatars.com/api/?name=John+Doe"}
                             alt="Profile"
                             className="w-full h-full object-cover"
                         />

@@ -1,15 +1,25 @@
 import { create } from "zustand";
 
-const getLocalStorageData = () => {
+// Helpers
+const getLocalStorageData = (key, fallback = []) => {
   try {
-    const storedData = localStorage.getItem("resume-personData");
-    return storedData ? JSON.parse(storedData) : {};
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : fallback;
   } catch (error) {
-    console.error("LocalStorage oxunmadı:", error);
-    return {};
+    console.error(`LocalStorage oxunmadı: ${key}`, error);
+    return fallback;
   }
 };
 
+const setLocalStorageData = (key, value) => {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    console.error(`LocalStorage yazılmadı: ${key}`, error);
+  }
+};
+
+// Store
 export const useResume = create((set) => ({
   personData: {
     firstName: "",
@@ -22,38 +32,85 @@ export const useResume = create((set) => ({
     lisence: "",
     summary: "",
     image: "",
-    ...getLocalStorageData(),
+    ...getLocalStorageData("resume-personData", {}),
   },
 
+  skills: getLocalStorageData("resume-skills", []),
+  education: getLocalStorageData("resume-education", []),
+  experience: getLocalStorageData("resume-experience", []),
+
+  // Person Info
   updatePersonData: (newData) =>
     set((state) => {
       const updated = {
         ...state.personData,
         ...newData,
       };
-      try {
-        localStorage.setItem("resume-personData", JSON.stringify(updated));
-      } catch (error) {
-        console.error("LocalStorage yazılmadı:", error);
-      }
+      setLocalStorageData("resume-personData", updated);
       return { personData: updated };
     }),
 
-    clearPersonData: () =>
-        set(() => {
-          localStorage.removeItem("resume-personData");
-          return {
-            personData: {
-              firstName: "",
-              lastName: "",
-              email: "",
-              phone: "",
-              country: "",
-              city: "",
-              job: "",
-              lisence: "",
-              summary: "",
-            },
-          };
-        }),
+  clearPersonData: () =>
+    set(() => {
+      localStorage.removeItem("resume-personData");
+      return {
+        personData: {
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          country: "",
+          city: "",
+          job: "",
+          lisence: "",
+          summary: "",
+          image: "",
+        },
+      };
+    }),
+
+  // Skills
+  addSkill: (skill) =>
+    set((state) => {
+      const updated = [...state.skills, skill];
+      setLocalStorageData("resume-skills", updated);
+      return { skills: updated };
+    }),
+
+  removeSkill: (index) =>
+    set((state) => {
+      const updated = state.skills.filter((_, i) => i !== index);
+      setLocalStorageData("resume-skills", updated);
+      return { skills: updated };
+    }),
+
+  // Education
+  // addEducation: (edu) =>
+  //   set((state) => {
+  //     const updated = [...state.education, edu];
+  //     setLocalStorageData("resume-education", updated);
+  //     return { education: updated };
+  //   }),
+
+  // removeEducation: (index) =>
+  //   set((state) => {
+  //     const updated = state.education.filter((_, i) => i !== index);
+  //     setLocalStorageData("resume-education", updated);
+  //     return { education: updated };
+  //   }),
+
+  // Experience
+  // addExperience: (exp) =>
+  //   set((state) => {
+  //     const updated = [...state.experience, exp];
+  //     setLocalStorageData("resume-experience", updated);
+  //     return { experience: updated };
+  //   }),
+
+  // removeExperience: (index) =>
+  //   set((state) => {
+  //     const updated = state.experience.filter((_, i) => i !== index);
+  //     setLocalStorageData("resume-experience", updated);
+  //     return { experience: updated };
+  //   }),
 }));

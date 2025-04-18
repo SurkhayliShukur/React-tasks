@@ -34,8 +34,11 @@ const Experience = () => {
   return (
     <>
       <div className='min-h-screen text-white px-6 flex flex-col justify-center items-center w-full'>
+        <h1 className="text-3xl font-bold text-center text-(--custom-color) pb-3">
+          {t("Experience")}
+        </h1>
         <div className="flex flex-col  flex-wrap gap-2 w-2/3">
-          <Input type="text" placeholder= {t("Company")} value={company} onChange={(e) => setCompany(e.target.value)} />
+          <Input type="text" placeholder={t("Company")} value={company} onChange={(e) => setCompany(e.target.value)} />
           <Input type="text" placeholder={t("Role")} value={role} onChange={(e) => setRole(e.target.value)} />
           <DatePicker placeholder={t("StartDate")} value={startDate} onChange={(date) => setStartDate(date)}
             className="custom-datepicker"

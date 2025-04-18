@@ -8,11 +8,14 @@ import { useResume } from '../../store/resumeStore'
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next'
 
 
 const BuildResume = () => {
 
   const previewRef = useRef();
+
+  const {t} = useTranslation()
 
   const handleDownloadCv = async () => {
     const element = previewRef.current;
@@ -52,13 +55,13 @@ const BuildResume = () => {
       <div className="flex w-full h-screen">
         <div className="w-full  text-white py-4 px-3  space-y-6 ">
           <div className="flex flex-wrap gap-2 mb-4">
-            <button onClick={() => setActiveSection('person')} className={`px-4 py-2 rounded ${activeSection === 'person' ? 'bg-(--custom-color)' : 'bg-gray-700'}`}>Personal Info</button>
-            <button onClick={() => setActiveSection('skills')} className={`px-4 py-2 rounded ${activeSection === 'skills' ? 'bg-(--custom-color)' : 'bg-gray-700'}`}>Skills</button>
-            <button onClick={() => setActiveSection('education')} className={`px-4 py-2 rounded ${activeSection === 'education' ? 'bg-(--custom-color)' : 'bg-gray-700'}`}>Education</button>
-            <button onClick={() => setActiveSection('experience')} className={`px-4 py-2 rounded ${activeSection === 'experience' ? 'bg-(--custom-color)' : 'bg-gray-700'}`}>Experience</button>
+            <button onClick={() => setActiveSection('person')} className={`px-4 py-2 rounded ${activeSection === 'person' ? 'bg-(--custom-color)' : 'bg-gray-700'}`}>{t("PersonInfoTitle")}</button>
+            <button onClick={() => setActiveSection('skills')} className={`px-4 py-2 rounded ${activeSection === 'skills' ? 'bg-(--custom-color)' : 'bg-gray-700'}`}> {t("Skills")} </button>
+            <button onClick={() => setActiveSection('education')} className={`px-4 py-2 rounded ${activeSection === 'education' ? 'bg-(--custom-color)' : 'bg-gray-700'}`}> {t("Education")}</button>
+            <button onClick={() => setActiveSection('experience')} className={`px-4 py-2 rounded ${activeSection === 'experience' ? 'bg-(--custom-color)' : 'bg-gray-700'}`}> {t("Experience")} </button>
             <button
               onClick={clearAllResumeData}
-              className=' bg-red-700 py-2 px-4 text-white rounded-md'>Reset All
+              className=' bg-red-700 py-2 px-4 text-white rounded-md'>{t("ResetAll")}
             </button>
           </div>
           <div>
@@ -71,7 +74,7 @@ const BuildResume = () => {
             <button
               onClick={handleDownloadCv}
               className='bg-(--custom-color) py-2 px-4 text-white rounded'>
-              Download Cv
+              {t("DownloadCv")}
             </button>
           </div>
 

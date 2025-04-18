@@ -37,6 +37,9 @@ const Education = () => {
   return (
     <>
       <div className='min-h-screen text-white px-6 flex flex-col justify-center items-center w-full'>
+        <h1 className="text-3xl font-bold text-center text-(--custom-color) pb-3">
+          {t("Education")}
+        </h1>
         <div className="flex flex-col  flex-wrap gap-2 w-2/3">
           <Input type="text" placeholder={t("School")} value={school} onChange={(e) => setSchool(e.target.value)} />
           <Input type="text" placeholder={t("Degree")} value={degree} onChange={(e) => setDegree(e.target.value)} />

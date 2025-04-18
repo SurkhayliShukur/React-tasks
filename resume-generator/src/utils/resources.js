@@ -28,6 +28,8 @@ export const resources = {
             EndDate: "End Date",
             Experience: "Experience",
             DeleteResume:"Delete information",
+            ResetAll: "Reset all",
+            DownloadCv: "Download CV",
         }
 
 
@@ -61,6 +63,8 @@ export const resources = {
             EnterASkill: "Bacarıq daxil edin",
             Experience: "Təcrübə",
             DeleteResume:"Məlumatı Sil",
+            ResetAll: "Hamısını sıfırla",
+            DownloadCv: "CV yüklə",
         }
 
     }

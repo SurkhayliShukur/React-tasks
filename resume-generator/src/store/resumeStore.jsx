@@ -113,25 +113,26 @@ export const useResume = create((set) => ({
       return { experience: updated };
     }),
 
-  clearAllResumeData: () =>
-    set(() => {
-      localStorage.removeItem("resume-personData");
-      return {
-        personData: {
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          country: "",
-          city: "",
-          job: "",
-          lisence: "",
-          summary: "",
-          image: "",
-        },
-        skills: [],
-        education: [],
-        experience: [],
-      };
-    }),
+    clearAllResumeData: () =>
+      set(() => {
+        localStorage.clear(); 
+        return {
+          personData: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            country: "",
+            city: "",
+            job: "",
+            lisence: "",
+            summary: "",
+            image: "",
+          },
+          skills: [],
+          education: [],
+          experience: [],
+        };
+      }),
+    
 }));

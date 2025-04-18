@@ -35,13 +35,13 @@ const PersonInfo = () => {
                     </div>
 
                     <Input
-                            type="url"
-                            InputText="Image URL"
-                            name="image"
-                            placeholder="https://example.com/photo.jpg"
-                            value={personData.image || ""}
-                            onChange={handleInputChange}
-                        />
+                        type="url"
+                        InputText={t("ImageUrl")}
+                        name="image"
+                        placeholder="https://example.com/photo.jpg"
+                        value={personData.image || ""}
+                        onChange={handleInputChange}
+                    />
                 </div>
 
                 <div className="flex justify-between items-center gap-4">
@@ -64,18 +64,18 @@ const PersonInfo = () => {
                         />
                         <Input
                             type="email"
-                            InputText="Email"
+                            InputText={t("Email")}
                             name="email"
-                            placeholder="Mail"
+                            placeholder={t("Email")}
                             value={personData.email}
                             onChange={handleInputChange}
 
                         />
                         <Input
                             type="number"
-                            InputText="phone"
+                            InputText={t("Phone")}
                             name="phone"
-                            placeholder="Phone"
+                            placeholder={t("Phone")}
                             value={personData.phone || ""}
                             onChange={handleInputChange}
 
@@ -85,25 +85,25 @@ const PersonInfo = () => {
                     <div>
                         <Input
                             type="text"
-                            InputText="City"
+                            InputText={t("City")}
                             name="city"
-                            placeholder="City"
+                            placeholder={t("City")}
                             value={personData.city || ""}
                             onChange={handleInputChange}
 
                         />
                         <Input
                             type="text"
-                            InputText="Country"
+                            InputText={t("Country")}
                             name="country"
-                            placeholder="Country"
+                            placeholder={t("Country")}
                             value={personData.country || ""}
                             onChange={handleInputChange}
 
                         />
                         <Input
                             type="text"
-                            InputText="Job"
+                            InputText={t("Job")}
                             name="job"
                             placeholder="Job"
                             value={personData.job || ""}
@@ -112,9 +112,9 @@ const PersonInfo = () => {
                         />
                         <Input
                             type="text"
-                            InputText="Lisence"
+                            InputText={t("License")}
                             name="lisence"
-                            placeholder="Lisence"
+                            placeholder={t("License")}
                             value={personData.lisence || ""}
                             onChange={handleInputChange}
 

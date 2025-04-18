@@ -2,6 +2,7 @@ import Home from "./layout/Home"
 import BuildResume from "./layout/BuildResume"
 import { Routes, Route } from "react-router-dom"
 import { ROUTER } from "./constant/router"
+import "react-datepicker/dist/react-datepicker.css";
 
 
 

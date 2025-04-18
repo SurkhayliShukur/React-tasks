@@ -63,7 +63,6 @@ export const useResume = create((set) => ({
           city: "",
           job: "",
           lisence: "",
-          summary: "",
           image: "",
         },
       };
@@ -85,32 +84,54 @@ export const useResume = create((set) => ({
     }),
 
   // Education
-  // addEducation: (edu) =>
-  //   set((state) => {
-  //     const updated = [...state.education, edu];
-  //     setLocalStorageData("resume-education", updated);
-  //     return { education: updated };
-  //   }),
+  addEducation: (edu) =>
+    set((state) => {
+      const updated = [...state.education, edu];
+      setLocalStorageData("resume-education", updated);
+      return { education: updated };
+    }),
 
-  // removeEducation: (index) =>
-  //   set((state) => {
-  //     const updated = state.education.filter((_, i) => i !== index);
-  //     setLocalStorageData("resume-education", updated);
-  //     return { education: updated };
-  //   }),
+  removeEducation: (index) =>
+    set((state) => {
+      const updated = state.education.filter((_, i) => i !== index);
+      setLocalStorageData("resume-education", updated);
+      return { education: updated };
+    }),
 
   // Experience
-  // addExperience: (exp) =>
-  //   set((state) => {
-  //     const updated = [...state.experience, exp];
-  //     setLocalStorageData("resume-experience", updated);
-  //     return { experience: updated };
-  //   }),
+  addExperience: (exp) =>
+    set((state) => {
+      const updated = [...state.experience, exp];
+      setLocalStorageData("resume-experience", updated);
+      return { experience: updated };
+    }),
 
-  // removeExperience: (index) =>
-  //   set((state) => {
-  //     const updated = state.experience.filter((_, i) => i !== index);
-  //     setLocalStorageData("resume-experience", updated);
-  //     return { experience: updated };
-  //   }),
+  removeExperience: (index) =>
+    set((state) => {
+      const updated = state.experience.filter((_, i) => i !== index);
+      setLocalStorageData("resume-experience", updated);
+      return { experience: updated };
+    }),
+
+  clearAllResumeData: () =>
+    set(() => {
+      localStorage.removeItem("resume-personData");
+      return {
+        personData: {
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          country: "",
+          city: "",
+          job: "",
+          lisence: "",
+          summary: "",
+          image: "",
+        },
+        skills: [],
+        education: [],
+        experience: [],
+      };
+    }),
 }));

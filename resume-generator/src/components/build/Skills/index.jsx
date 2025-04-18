@@ -1,12 +1,15 @@
 import React, { useState, useCallback } from 'react'
 import { Input } from '../../../common/Input'
 import { useResume } from '../../../store/resumeStore'
+import {useTranslation} from 'react-i18next'
 
 const Skills = () => {
   const [inputSkill, setInputSkill] = useState("");
   const skills = useResume((state) => state.skills);
   const addSkill = useResume((state) => state.addSkill);
   const removeSkill = useResume((state) => state.removeSkill);
+
+  const { t } = useTranslation();
 
   const handleAddSkill = useCallback(() => {
     if (inputSkill.trim() !== "") {
@@ -21,14 +24,14 @@ const Skills = () => {
   return (
     <div className='flex justify-center flex-col items-center min-h-screen '>
       <h1 className="text-3xl font-bold text-center text-(--custom-color) pb-3">
-        Skills
+      {t('Skills')}
       </h1>
       <div className="flex justify-center items-center gap-1 w-2/3">
         <div className='w-full'>
           <Input
             type="text"
-            name="skill"
-            placeholder="Enter a skill"
+            name={t('Skills')}
+            placeholder={t('EnterASkill')}
             value={inputSkill}
             onChange={(e) => setInputSkill(e.target.value)}
           />
@@ -36,9 +39,9 @@ const Skills = () => {
 
         <button
           onClick={handleAddSkill}
-          className="bg-(--custom-color) text-white py-2 px-3  rounded "
+          className="bg-(--custom-color) text-white  py-2 px-3 rounded "
         >
-          Add
+          {t('Add')}
         </button>
       </div>
       <ul className="mt-4 space-y-2 w-2/3">
@@ -52,7 +55,7 @@ const Skills = () => {
               onClick={() => handleRemoveSkill(index)}
               className="text-red-600 "
             >
-              Remove
+              {t('Remove')} 
             </button>
           </li>
         ))}

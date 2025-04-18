@@ -38,7 +38,23 @@ body {
   background-color: rgba(0, 158, 103, 0.5);
   color: #ffffff;
 }
-@theme {
+:root{
   --font-display: 'Roboto', "sans-serif";
-  --custom-color: rgba(0, 158, 103, 0.95);
+  --custom-color: #009E67F2
 }
+
+.custom-datepicker.ant-picker {
+  @apply mt-0.5 w-full bg-transparent rounded-md border border-gray-300 py-2 px-3 outline-none shadow-sm sm:text-sm;
+}
+
+
+.custom-datepicker.ant-picker-focused {
+  border-color: var(--custom-color);
+  box-shadow: 0 0 0 1px var(--custom-color);
+}
+
+/* Placeholder rəngi üçün input-u hədəflə */
+.custom-datepicker .ant-picker-input > input::placeholder {
+  @apply text-gray-400;
+}
+

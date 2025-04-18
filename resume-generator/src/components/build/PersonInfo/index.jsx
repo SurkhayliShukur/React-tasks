@@ -105,7 +105,7 @@ const PersonInfo = () => {
                             type="text"
                             InputText={t("Job")}
                             name="job"
-                            placeholder="Job"
+                            placeholder={t("Job")}
                             value={personData.job || ""}
                             onChange={handleInputChange}
 
